@@ -32,6 +32,7 @@ First Version
 ## How to Use
 After add reference to project
 ```C#
+// Your latitude and longitude
 Venus v = new Venus(34.27, 117.15);
 
 Console.WriteLine(v.Rise);
