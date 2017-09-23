@@ -38,11 +38,11 @@ __Code Map__
 ![](https://github.com/ZhangGaoxing/AstroAlgo/blob/master/Doc/class.png)
 
 ## Version History
-### 2017/9/16 1.0.0
-First Version
 ### 2017-9-23 1.0.1 
 * Improve equinoxes and solstices accuracy 
 * ElevationAngle2Time() return "0:0:0" if time dose not exist
+### 2017/9/16 1.0.0
+First Version
 
 ## How to Use
 After add reference to project
