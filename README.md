@@ -4,16 +4,16 @@ AstroAlgo is an astronomical algorithms library, written in __.NET Standard__. I
 __Don't use it for scientific calculations.__
 
 ## Catalogue
-- [Reference](#Reference)
-- [How to Get](#How-to-Get)
-- [Introduction](#Introduction)
-- [Version History](#Version-History)
-- [How to Use](#How-to-Use)
-  - [Julian Day](#Julian-Day)
-  - [Sidereal Time](#Sidereal-Time)
-  - [Ecliptic Obliquity](#Ecliptic-Obliquity)
-  - [Coordinate Converter](#Coordinate-Converter)
-  - [Planets Data](#Planets-Data)
+- [Reference](#reference)
+- [How to Get](#how-to-get)
+- [Introduction](#introduction)
+- [Version History](#version-history)
+- [How to Use](#how-to-use)
+  - [Julian Day](#julian-day)
+  - [Sidereal Time](#sidereal-time)
+  - [Ecliptic Obliquity](#ecliptic-obliquity)
+  - [Coordinate Converter](#coordinate-converter)
+  - [Planets Data](#planets-data)
 
 ## Reference
 * Astronomical Algorithms, First Edition by Jean Meeus
