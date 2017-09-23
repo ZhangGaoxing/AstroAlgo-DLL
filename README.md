@@ -3,6 +3,18 @@ AstroAlgo is an astronomical algorithms library, written in __.NET Standard__. I
 
 __Don't use it for scientific calculations.__
 
+## Catalogue
+- [Reference](#reference)
+- [How to Get](#how-to-get)
+- [Introduction](#introduction)
+- [Version History](#version-history)
+- [How to Use](#how-to-use)
+  - [Julian Day](#julian-day)
+  - [Sidereal Time](#sidereal-time)
+  - [Ecliptic Obliquity](#ecliptic-obliquity)
+  - [Coordinate Converter](#coordinate-converter)
+  - [Planets Data](#planets-data)
+
 ## Reference
 * Astronomical Algorithms, First Edition by Jean Meeus
 * Full-precision VSOP87 theory data - http://www.neoprogrammics.com/vsop87/
@@ -26,12 +38,44 @@ __Code Map__
 ![](https://github.com/ZhangGaoxing/AstroAlgo/blob/master/Doc/class.png)
 
 ## Version History
+### 2017-9-23 1.0.1 
+* Improve equinoxes and solstices accuracy 
+* ElevationAngle2Time() return "0:0:0" if time dose not exist
 ### 2017/9/16 1.0.0
 First Version
 
 ## How to Use
 After add reference to project
+### Julian Day
 ```C#
+// Julian to Calendar
+double julian = Julian.ToJulianDay(DateTime.Now);
+// Calendar to Julian
+DateTime now = Julian.ToCalendarDay(julian);
+```
+### Sidereal Time
+```C#
+// Zone Time, Local Zone, Longitude
+double angle = SiderealTime.LocalSiderealTime(DateTime.Now, TimeZoneInfo.Local, 117.18);
+string time = BasicTools.Angle2HMS(angle);
+
+Console.WriteLine(time);
+```
+### Ecliptic Obliquity
+```C#
+double angle = CoordinateSystem.EclipticObliquity(DateTime.Now);
+```
+### Coordinate Converter
+```C#
+Equator equator = Sun.EquatorialCoordinate(DateTime.Now);
+Ecliptic ecliptic = CoordinateSystem.Equatorial2Ecliptic(equator);
+
+Console.WriteLine(ecliptic.Latitude);
+Console.WriteLine(ecliptic.Longitude);
+```
+### Planets Data
+```C#
+// Your latitude and longitude
 Venus v = new Venus(34.27, 117.15);
 
 Console.WriteLine(v.Rise);
