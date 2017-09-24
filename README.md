@@ -38,6 +38,9 @@ __Code Map__
 ![](https://github.com/ZhangGaoxing/AstroAlgo/blob/master/Doc/class.png)
 
 ## Version History
+### 2017-9-24 1.0.2 
+* Now you can custom timezone when initialize the objects of SolarSystem
+* Fixed many many many bugs...
 ### 2017-9-23 1.0.1 
 * Improve equinoxes and solstices accuracy 
 * ElevationAngle2Time() return "0:0:0" if time dose not exist
@@ -76,7 +79,7 @@ Console.WriteLine(ecliptic.Longitude);
 ### Planets Data
 ```C#
 // Your latitude and longitude
-Venus v = new Venus(34.27, 117.15);
+Venus v = new Venus(34.27, 117.15, TimeZoneInfo.Local);
 
 Console.WriteLine(v.Rise);
 Console.WriteLine(v.Culmination);

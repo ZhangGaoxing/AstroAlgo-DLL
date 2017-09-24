@@ -1,0 +1,1307 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AstroAlgo</name>
+    </assembly>
+    <members>
+        <member name="T:AstroAlgo.Base.BasicTools">
+            <summary>
+            基础工具
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.Base.BasicTools.Angle2DMS(System.Double)">
+            <summary>
+            角度转度分秒
+            </summary>
+            <param name="angle">角度</param>
+            <returns>度分秒</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.BasicTools.Angle2HMS(System.Double)">
+            <summary>
+            角度转时分秒
+            </summary>
+            <param name="angle">角度</param>
+            <returns>时分秒</returns>
+        </member>
+        <member name="T:AstroAlgo.Base.CoordinateSystem">
+            <summary>
+            坐标系统
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.GetNutation(System.DateTime)">
+            <summary>
+            计算黄经章动，交角章动
+            </summary>
+            <param name="time">时间</param>
+            <returns>章动</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.EclipticObliquity(System.DateTime,System.Boolean)">
+            <summary>
+            黄赤交角（千年误差0''.01）
+            </summary>
+            <param name="time">时间</param>
+            <param name="isTrue">真黄赤交角</param>
+            <returns>角度大小</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.Ecliptic2Equatorial(AstroAlgo.Model.Ecliptic)">
+            <summary>
+            黄道坐标转赤道坐标（J2000.0）
+            </summary>
+            <param name="e">黄道坐标</param>
+            <returns>赤道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.Ecliptic2Equatorial(AstroAlgo.Model.Ecliptic,System.DateTime,System.Boolean)">
+            <summary>
+            黄道坐标转赤道坐标
+            </summary>
+            <param name="e">黄道坐标</param>
+            <param name="time">时间（用于计算黄赤交角）</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>赤道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.Equatorial2Ecliptic(AstroAlgo.Model.Equator)">
+            <summary>
+            赤道坐标转黄道坐标（J2000.0）
+            </summary>
+            <param name="e">赤道坐标</param>
+            <returns>黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.Equatorial2Ecliptic(AstroAlgo.Model.Equator,System.DateTime,System.Boolean)">
+            <summary>
+            赤道坐标转黄道坐标
+            </summary>
+            <param name="e">赤道坐标</param>
+            <param name="time">时间（用于计算黄赤交角）</param>
+            <param name="isApparent">是否为视赤道坐标</param>
+            <returns>黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.HourAngle(System.DateTime,System.Double,System.Double)">
+            <summary>
+            本地时角
+            </summary>
+            <param name="time">时间</param>
+            <param name="RA">赤经</param>
+            <param name="longitude">观测站经度</param>
+            <returns>时角</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.ParallacticAngle(System.DateTime,AstroAlgo.Model.Equator,System.Double,System.Double)">
+            <summary>
+            视差角
+            </summary>
+            <param name="time">时间</param>
+            <param name="e">赤道坐标</param>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <returns>视差角</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.AngularSeparation(AstroAlgo.Model.Equator,AstroAlgo.Model.Equator)">
+            <summary>
+            计算角距离
+            </summary>
+            <param name="e1">天体1赤道坐标</param>
+            <param name="e2">天体2赤道坐标</param>
+            <returns>角距离，单位为度</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.ElevationAngle2Time(AstroAlgo.Model.Equator,System.Double,System.Double,System.Double,System.DateTime,System.TimeZoneInfo)">
+            <summary>
+            高度角转换为区时
+            </summary>
+            <param name="e">赤道坐标</param>
+            <param name="angle">高度角</param>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="date">日期</param>
+            <param name="localZone">时区</param>
+            <returns>单位为“度”的时间</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.CulminationAngle(System.DateTime,AstroAlgo.Model.Equator,System.Double)">
+            <summary>
+            中天高度角
+            </summary>
+            <param name="date">日期</param>
+            <param name="e">赤道坐标</param>
+            <param name="latitude">纬度</param>
+            <returns>中天高度角</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.ElevationAngle(System.DateTime,AstroAlgo.Model.Equator,System.Double,System.Double)">
+            <summary>
+            计算指定时间的高度角
+            </summary>
+            <param name="time">时间</param>
+            <param name="e">赤道坐标</param>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <returns>高度角</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.CoordinateSystem.Azimuth(System.DateTime,AstroAlgo.Model.Equator,System.Double,System.Double)">
+            <summary>
+            计算方位角
+            </summary>
+            <param name="time">时间</param>
+            <param name="e">赤道坐标</param>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <returns></returns>
+        </member>
+        <member name="T:AstroAlgo.Base.Julian">
+            <summary>
+            儒略日
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.Base.Julian.ToJulianDay(System.DateTime,System.Boolean)">
+            <summary>
+            将 DateTime 转为儒略日
+            </summary>
+            <param name="time">时间</param>
+            <param name="isModified">修正儒略日</param>
+            <returns>儒略日</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.Julian.ToCalendarDay(System.Double)">
+            <summary>
+            将儒略日转为 DateTime
+            </summary>
+            <param name="julianDay">儒略日</param>
+            <returns>时间</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.Julian.Date2Interval(System.DateTime,System.DateTime)">
+            <summary>
+            计算给定日期内的间隔天数
+            </summary>
+            <param name="date1">日期1</param>
+            <param name="date2">日期2</param>
+            <returns>间隔天数</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.Julian.Interval2Date(System.DateTime,System.Double)">
+            <summary>
+            计算给定间隔天数的日期
+            </summary>
+            <param name="date">起始日期</param>
+            <param name="interval">间隔天数</param>
+            <returns>日期</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.Julian.GetWeek(System.DateTime)">
+            <summary>
+            计算星期几
+            </summary>
+            <param name="date">时间</param>
+            <returns>星期几</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.Julian.GetOrdinalDay(System.DateTime)">
+            <summary>
+            计算年内天数
+            </summary>
+            <param name="date">时间</param>
+            <returns>天数</returns>
+        </member>
+        <member name="T:AstroAlgo.Base.SiderealTime">
+            <summary>
+            恒星时
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.Base.SiderealTime.UTSiderealTime(System.DateTime)">
+            <summary>
+            计算格林尼治恒星时
+            </summary>
+            <param name="date">时间</param>
+            <returns>单位为“度”的格林尼治恒星时</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.SiderealTime.LocalSiderealTime(System.DateTime,System.TimeZoneInfo,System.Double)">
+            <summary>
+            计算地方恒星时
+            </summary>
+            <param name="zoneTime">区时</param>
+            <param name="localZone">时区</param>
+            <param name="longitude">经度</param>
+            <returns>单位为“度”的地方恒星时</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.SiderealTime.LocalSiderealTime2ZoneTime(System.Double,System.DateTime,System.TimeZoneInfo,System.Double)">
+            <summary>
+            地方恒星时转为区时
+            </summary>
+            <param name="localSiderealTime">地方恒星时(0°-360°)</param>
+            <param name="date">日期</param>
+            <param name="localZone">时区</param>
+            <param name="longitude">经度</param>
+            <returns>单位为“度”的区时</returns>
+        </member>
+        <member name="M:AstroAlgo.Base.SiderealTime.DifferenceTdUt(System.DateTime)">
+            <summary>
+            力学时与世界时之差
+            </summary>
+            <param name="time">时间</param>
+            <returns>差值</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.IPlanet">
+            <summary>
+            行星接口
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IPlanet.ToSun">
+            <summary>
+            当前与太阳距离
+            </summary>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.IStar">
+            <summary>
+            恒星接口
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IStar.Equator">
+            <summary>
+            当前赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IStar.Ecliptic">
+            <summary>
+            当前地心黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IStar.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IStar.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IStar.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IStar.ToEarth">
+            <summary>
+            当前与地球距离
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IStar.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.IStar.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Earth">
+            <summary>
+            地球
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Earth.HeliocentricEclipticCoordinate(System.DateTime)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Earth.ToSunDistance(System.DateTime)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Jupiter">
+            <summary>
+            木星
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.ToEarth">
+            <summary>
+            当前与地球距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.ToSun">
+            <summary>
+            当前与太阳距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Jupiter.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Jupiter.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个木星实例
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="localZone">时区</param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Jupiter.GetOrbitalElement(System.DateTime)">
+            <summary>
+            计算行星轨道要素
+            </summary>
+            <param name="time">时间</param>
+            <returns>轨道要素</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Jupiter.HeliocentricEclipticCoordinate(System.DateTime)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Jupiter.ToSunDistance(System.DateTime)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Jupiter.ToEarthDistance(System.DateTime)">
+            <summary>
+            计算到地球的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Jupiter.EclipticalCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算地心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>地心视黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Jupiter.HeliocentricEclipticCoordinate(System.DateTime,System.Double)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Jupiter.ToSunDistance(System.DateTime,System.Double)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Mars">
+            <summary>
+            火星
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.ToEarth">
+            <summary>
+            当前与地球距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.ToSun">
+            <summary>
+            当前与太阳距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mars.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mars.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个火星实例
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="localZone">时区</param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mars.GetOrbitalElement(System.DateTime)">
+            <summary>
+            计算行星轨道要素
+            </summary>
+            <param name="time">时间</param>
+            <returns>轨道要素</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mars.HeliocentricEclipticCoordinate(System.DateTime)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mars.ToSunDistance(System.DateTime)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mars.ToEarthDistance(System.DateTime)">
+            <summary>
+            计算到地球的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mars.EclipticalCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算地心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>地心视黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mars.HeliocentricEclipticCoordinate(System.DateTime,System.Double)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mars.ToSunDistance(System.DateTime,System.Double)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Mercury">
+            <summary>
+            水星
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.ToEarth">
+            <summary>
+            当前与地球距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.ToSun">
+            <summary>
+            当前与太阳距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Mercury.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mercury.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个水星实例
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="localZone">时区</param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mercury.GetOrbitalElement(System.DateTime)">
+            <summary>
+            计算行星轨道要素
+            </summary>
+            <param name="time">时间</param>
+            <returns>轨道要素</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mercury.HeliocentricEclipticCoordinate(System.DateTime)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mercury.ToSunDistance(System.DateTime)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mercury.ToEarthDistance(System.DateTime)">
+            <summary>
+            计算到地球的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mercury.EclipticalCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算地心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>地心视黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mercury.HeliocentricEclipticCoordinate(System.DateTime,System.Double)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Mercury.ToSunDistance(System.DateTime,System.Double)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Moon">
+            <summary>
+            月球
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Moon.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Moon.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Moon.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Moon.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Moon.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Moon.ToEarth">
+            <summary>
+            当前月地距离(km)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Moon.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Moon.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Moon.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个月球实例
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="localZone">时区</param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Moon.EclipticalCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算指定时间的月球黄经与黄纬
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Moon.ToEarthDistance(System.DateTime)">
+            <summary>
+            计算指定时间的地月距离（km）
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离，单位为千米</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Neptune">
+            <summary>
+            海王星
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.ToEarth">
+            <summary>
+            当前与地球距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.ToSun">
+            <summary>
+            当前与太阳距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Neptune.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Neptune.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个海王星实例
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="localZone"></param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Neptune.GetOrbitalElement(System.DateTime)">
+            <summary>
+            计算行星轨道要素
+            </summary>
+            <param name="time">时间</param>
+            <returns>轨道要素</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Neptune.HeliocentricEclipticCoordinate(System.DateTime)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Neptune.ToSunDistance(System.DateTime)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Neptune.ToEarthDistance(System.DateTime)">
+            <summary>
+            计算到地球的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Neptune.EclipticalCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算地心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>地心视黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Neptune.HeliocentricEclipticCoordinate(System.DateTime,System.Double)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Neptune.ToSunDistance(System.DateTime,System.Double)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Pluto">
+            <summary>
+            冥王星
+            </summary>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Saturn">
+            <summary>
+            土星
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.ToEarth">
+            <summary>
+            当前与地球距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.ToSun">
+            <summary>
+            当前与太阳距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Saturn.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Saturn.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个土星实例
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="localZone">时区</param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Saturn.GetOrbitalElement(System.DateTime)">
+            <summary>
+            计算行星轨道要素
+            </summary>
+            <param name="time">时间</param>
+            <returns>轨道要素</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Saturn.HeliocentricEclipticCoordinate(System.DateTime)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Saturn.ToSunDistance(System.DateTime)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Saturn.ToEarthDistance(System.DateTime)">
+            <summary>
+            计算到地球的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Saturn.EclipticalCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算地心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>地心视黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Saturn.HeliocentricEclipticCoordinate(System.DateTime,System.Double)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Saturn.ToSunDistance(System.DateTime,System.Double)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Sun">
+            <summary>
+            太阳
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Sun.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Sun.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Sun.Rise">
+            <summary>
+            当日日出时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Sun.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Sun.Down">
+            <summary>
+            当日日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Sun.ToEarth">
+            <summary>
+            日地距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Sun.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Sun.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Sun.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个太阳实例
+            </summary>
+            <param name="latitude">观测地纬度</param>
+            <param name="longitude">观测地经度</param>
+            <param name="localZone">时区</param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Sun.EquatorialCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算指定时间的太阳赤经与赤纬
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视赤道坐标</param>
+            <returns>赤经赤纬 (0°-360°)</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Sun.ToEarthDistance(System.DateTime)">
+            <summary>
+            日地距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离，单位为“天文单位”</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Sun.EquinoxAndSolstice(System.Int32,System.TimeZoneInfo)">
+            <summary>
+            计算分至点
+            </summary>
+            <param name="year">年份</param>
+            <param name="localZone">时区</param>
+            <returns>DateTime 数组，长度为4，内容为春分、夏至、秋分、冬至时间</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Uranus">
+            <summary>
+            天王星
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.ToEarth">
+            <summary>
+            当前与地球距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.ToSun">
+            <summary>
+            当前与太阳距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Uranus.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Uranus.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个天王星实例
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Uranus.GetOrbitalElement(System.DateTime)">
+            <summary>
+            计算行星轨道要素
+            </summary>
+            <param name="time">时间</param>
+            <returns>轨道要素</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Uranus.HeliocentricEclipticCoordinate(System.DateTime)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Uranus.ToSunDistance(System.DateTime)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Uranus.ToEarthDistance(System.DateTime)">
+            <summary>
+            计算到地球的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Uranus.EclipticalCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算地心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>地心视黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Uranus.HeliocentricEclipticCoordinate(System.DateTime,System.Double)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Uranus.ToSunDistance(System.DateTime,System.Double)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="T:AstroAlgo.SolarSystem.Venus">
+            <summary>
+            金星
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.Equator">
+            <summary>
+            当前视赤道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.Ecliptic">
+            <summary>
+            当前视黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.Rise">
+            <summary>
+            当日升时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.Culmination">
+            <summary>
+            当日中天时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.Down">
+            <summary>
+            当日落时间
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.ToEarth">
+            <summary>
+            当前与地球距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.ToSun">
+            <summary>
+            当前与太阳距离(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.ElevationAngle">
+            <summary>
+            当前高度角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.SolarSystem.Venus.Azimuth">
+            <summary>
+            当前方位角
+            </summary>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Venus.#ctor(System.Double,System.Double,System.TimeZoneInfo)">
+            <summary>
+            初始化一个金星实例
+            </summary>
+            <param name="latitude">纬度</param>
+            <param name="longitude">经度</param>
+            <param name="localZone">时区</param>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Venus.GetOrbitalElement(System.DateTime)">
+            <summary>
+            计算行星轨道要素
+            </summary>
+            <param name="time">时间</param>
+            <returns>轨道要素</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Venus.HeliocentricEclipticCoordinate(System.DateTime)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Venus.ToSunDistance(System.DateTime)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Venus.ToEarthDistance(System.DateTime)">
+            <summary>
+            计算到地球的距离
+            </summary>
+            <param name="time">时间</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Venus.EclipticalCoordinate(System.DateTime,System.Boolean)">
+            <summary>
+            计算地心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="isApparent">是否为视黄道坐标</param>
+            <returns>地心视黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Venus.HeliocentricEclipticCoordinate(System.DateTime,System.Double)">
+            <summary>
+            计算日心黄道坐标
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>日心黄道坐标</returns>
+        </member>
+        <member name="M:AstroAlgo.SolarSystem.Venus.ToSunDistance(System.DateTime,System.Double)">
+            <summary>
+            计算到太阳的距离
+            </summary>
+            <param name="time">时间</param>
+            <param name="jd">光行时修正</param>
+            <returns>距离（天文单位）</returns>
+        </member>
+        <member name="T:AstroAlgo.Model.Ecliptic">
+            <summary>
+            黄道坐标
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.Ecliptic.Longitude">
+            <summary>
+            黄经（0-360）
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.Ecliptic.Latitude">
+            <summary>
+            黄纬（-90-90）
+            </summary>
+        </member>
+        <member name="T:AstroAlgo.Model.Equator">
+            <summary>
+            赤道坐标
+            </summary>
+        </member>
+        <member name="F:AstroAlgo.Model.Equator.RA">
+            <summary>
+            赤经 (0°-360°)
+            </summary>
+        </member>
+        <member name="F:AstroAlgo.Model.Equator.Dec">
+            <summary>
+            赤纬 (-90°-90°)
+            </summary>
+        </member>
+        <member name="T:AstroAlgo.Model.Nutation">
+            <summary>
+            章动
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.Nutation.Longitude">
+            <summary>
+            黄经章动
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.Nutation.Obliquity">
+            <summary>
+            交角章动
+            </summary>
+        </member>
+        <member name="T:AstroAlgo.Model.OrbitalElement">
+            <summary>
+            轨道要素
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.OrbitalElement.MeanLongitude">
+            <summary>
+            行星平黄经
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.OrbitalElement.SemimajorAxis">
+            <summary>
+            轨道半径长(AU)
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.OrbitalElement.Eccentricity">
+            <summary>
+            轨道离心率
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.OrbitalElement.EclipticInclination">
+            <summary>
+            轨道与黄道夹角
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.OrbitalElement.AscendingNodeLongitude">
+            <summary>
+            升交点黄经
+            </summary>
+        </member>
+        <member name="P:AstroAlgo.Model.OrbitalElement.PerihelionLongitude">
+            <summary>
+            近日点黄经
+            </summary>
+        </member>
+    </members>
+</doc>
