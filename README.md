@@ -1,6 +1,8 @@
 # AstroAlgo
 AstroAlgo is an astronomical algorithms library, written in __.NET Standard__. It can be used to calculate astronomical data, like equator and ecliptic coordinate, planet rise and down time, elevation angle... Planets data are based on the planetary theory VSOP87.
 
+NuGet : https://www.nuget.org/packages/AstroAlgo/
+
 __Don't use it for scientific calculations.__
 
 ## Catalogue
@@ -22,7 +24,7 @@ __Don't use it for scientific calculations.__
 ## How to Get
 * NuGet Package Manager
 ```
-PM> Install-Package AstroAlgo -Version 1.0.0
+PM> Install-Package AstroAlgo -Version 1.0.1
 ```
 * Add AstroAlgo.dll to project
 
