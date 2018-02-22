@@ -40,6 +40,9 @@ __Code Map__
 ![](https://github.com/ZhangGaoxing/AstroAlgo/blob/master/Doc/class.png)
 
 ## Version History
+### 2018-2-22 1.0.3 
+* Now you can calculate solar terms
+* Fixed bugs
 ### 2017-9-24 1.0.2 
 * Now you can custom timezone when initialize the objects of SolarSystem
 * Fixed many many many bugs...
