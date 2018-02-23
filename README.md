@@ -24,7 +24,7 @@ __Don't use it for scientific calculations.__
 ## How to Get
 * NuGet Package Manager
 ```
-PM> Install-Package AstroAlgo -Version 1.0.1
+PM> Install-Package AstroAlgo -Version 1.0.3
 ```
 * Add AstroAlgo.dll to project
 
